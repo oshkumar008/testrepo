@@ -9,14 +9,19 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <a href="/home">  <img
+  
+  <a routerLink="">
+  <img
   width="50"
   alt="Rev2Grow Logo"
   src="assets/coreimg/logo.jpeg"
 />
 </a>
- 
-  <span>Welcome</span>
+<button routerLink="/users/login" mat-button>Users</button>
+  <button routerLink="/users/myaccount" mat-button>My Account</button>
+  <button routerLink="" mat-button>Home</button>
+  
+  <span></span>
     <div class="spacer"></div>
     Search : <input class="form-control col-sm-2" [(ngModel)]="data">
  
@@ -110,7 +115,7 @@
       <span>Add & Remove</span>
     </div>
   </div>
-
+  <router-outlet></router-outlet>
   <!-- Terminal -->
   <!-- <div class="terminal" [ngSwitch]="selection.value">
       <pre *ngSwitchDefault>ng generate component xyz</pre>
@@ -278,4 +283,3 @@
 
 
 
-<router-outlet></router-outlet>

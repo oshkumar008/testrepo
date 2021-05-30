@@ -4,17 +4,24 @@ import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import {HomeService} from './home.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { UserModule } from './user/user.module';
+import { LandingComponent } from './landing/landing.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,10 +30,14 @@ import { MatSliderModule } from '@angular/material/slider';
     NgbModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatSliderModule
+    MatSliderModule,
+    MatMenuModule,
+    CommonModule,
+    UserModule
   ],
   exports:[
-    MatSliderModule
+    CommonModule,
+    MatSliderModule,
   ],
   providers: [HomeService],
   bootstrap: [AppComponent]

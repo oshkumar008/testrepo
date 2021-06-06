@@ -16,12 +16,22 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserModule } from './user/user.module';
 import { LandingComponent } from './landing/landing.component';
+import { AlertComponent } from './alert/alert.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorInterceptor } from './auth/token-intercepor.interceptor';
+import { ErrorDialogComponent } from './error-dialog/errordialog/errordialog.component';
+import { ErrorDialogService } from './error-dialog/errordialog.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AuthGuard } from './auth/auth.guard';
+import {UserdataService} from './user/userdata.service';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     LandingComponent,
+    AlertComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,14 +43,19 @@ import { LandingComponent } from './landing/landing.component';
     MatSliderModule,
     MatMenuModule,
     CommonModule,
-    UserModule
+    UserModule,
+    HttpClientModule,
+    MatDialogModule
   ],
   exports:[
     CommonModule,
     MatSliderModule,
   ],
-  providers: [HomeService],
-  bootstrap: [AppComponent]
+  providers: [HomeService,ErrorDialogService,AuthGuard,UserdataService,{
+    provide:HTTP_INTERCEPTORS,useClass: TokenInterceptorInterceptor,multi:true
+  }],
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorDialogComponent],
 })
 export class AppModule { 
   all:any = 20;

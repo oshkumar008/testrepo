@@ -1,10 +1,11 @@
 
 <app-breadcrum [name]="page" (checkthepage)="getPageName($event)"></app-breadcrum>
 <div class="col-sm-6 text-center">
-    <h5 appMessagebox>{{arr|changeFormat}}</h5>
+    <h5 [appMessagebox] [appHighlight]='headingcolor' >{{arr}}</h5>
     <!-- <h3>Binding innerHTML</h3>
     <p class="e2e-inner-html-bound" [innerHTML]="'Template <script>alert(0wned)</script> <b>Syntax</b>'"></p> -->
     <!-- <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider> -->
+    <h4 *ngIf="ErrorMassage" style="color: #f01;">{{ErrorMassage}}</h4>
     <div class="socialButtons">
     <div style="cursor: pointer;" (click)="signInWithGoogle()" class="googleplus">
             <img src="assets/images/googleico.png" alt="login">

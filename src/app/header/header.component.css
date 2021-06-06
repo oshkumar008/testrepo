@@ -23,6 +23,13 @@
   .spacer {
     flex: 1;
   }
+  .active {
+    background-color: blue;
+  }
+  
+  .navigate-active {
+    color: lightseagreen;
+  }
 
   .toolbar {
     position: absolute;

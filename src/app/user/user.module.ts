@@ -13,12 +13,12 @@ import { AccountComponent } from './account/account.component';
 import { NotificationComponent } from './notification/notification.component';
 import { OrderComponent } from './order/order.component';
 import { WalletComponent } from './wallet/wallet.component';
-import {UserdataService} from './userdata.service';
+//import {UserdataService} from './userdata.service';
 import {UserRoutingModule} from './user-routing.module';
 import { BreadcrumComponent } from '../breadcrum/breadcrum.component';
 import { ChangeFormatPipe } from '../change-format.pipe';
 import { MessageboxDirective } from './messagebox.directive';
-
+import {AuthGuard} from './../auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,8 @@ import { MessageboxDirective } from './messagebox.directive';
     BreadcrumComponent,ChangeFormatPipe
   ],
   providers:[
-    UserdataService
+    AuthGuard,
+    //UserdataService
   ]
 })
 export class UserModule { }
